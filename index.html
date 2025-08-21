@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dreaming in Spanish · Sueña en Español</title>
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Corporate fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    html, body { font-family: Inter, IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .heading { font-family: Poppins, Inter, sans-serif; }
+
+    /* Bright & cheerful hero background */
+    .hero-bg {
+      background:
+        radial-gradient(1000px 500px at 20% 10%, rgba(196,181,253,.65), transparent 60%),
+        radial-gradient(900px 420px at 85% 15%, rgba(99,102,241,.45), transparent 55%),
+        radial-gradient(800px 420px at 30% 90%, rgba(236,72,153,.35), transparent 55%),
+        linear-gradient(180deg,#f8fafc 0%, #eef2ff 100%);
+    }
+    .soft { box-shadow: 0 14px 35px rgba(15,23,42,.12); }
+
+    /* Blinking badge for "Coming soon" */
+    @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.25}}
+    .blink{ animation: blink 1.15s linear infinite; }
+
+    /* Slider animations */
+    .fade-enter { opacity: 0; transform: translateY(6px); }
+    .fade-enter-active { opacity: 1; transform: translateY(0); transition: all .35s ease; }
+    .fade-exit { opacity: 1; transform: translateY(0); }
+    .fade-exit-active { opacity: 0; transform: translateY(-6px); transition: all .3s ease; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 selection:bg-violet-200 selection:text-violet-900">
+
+  <!-- ===== Topbar / Language Switch ===== -->
+  <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/01-logo-see.png" alt="Logo" class="h-10 w-auto"/>
+        <span class="heading text-lg font-semibold text-slate-900" id="brandTitle">Dreaming in Spanish</span>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#in-person" class="hover:text-violet-700">Classes in Madrid</a>
+        <a href="#online" class="hover:text-violet-700">Online Classes</a>
+        <a href="#podcast" class="hover:text-violet-700">Podcast</a>
+        <a href="#testimonials" class="hover:text-violet-700">What learners say</a>
+        <a href="#about" class="hover:text-violet-700">About</a>
+        <a href="#contact" class="hover:text-violet-700">Contact</a>
+      </nav>
+
+      <button id="langBtn"
+        class="rounded-full bg-violet-600 text-white px-4 py-2 text-sm font-semibold shadow hover:bg-violet-700 transition">
+        ES / EN
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== SECTION 1: HERO ===== -->
+  <section class="relative hero-bg text-slate-900 overflow-hidden">
+    <!-- Decorative logo tiles -->
+    <div class="absolute inset-0 pointer-events-none opacity-30">
+      <img src="assets/01-logo-see.png" alt="" class="absolute -right-20 -top-10 w-[420px] rotate-12 opacity-40">
+      <img src="assets/01-logo-see.png" alt="" class="absolute -left-28 bottom-0 w-[320px] -rotate-6 opacity-40">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="heading text-4xl md:text-6xl font-extrabold leading-tight">
+          <span id="heroTitleLine1" class="block">Dreaming in Spanish</span>
+          <!-- Intermediate size between h1 and subtitle -->
+          <span id="heroTitleLine2" class="block text-violet-700 text-2xl md:text-3xl leading-snug mt-4"></span>
+        </h1>
+
+        <p id="heroSubtitle" class="mt-5 text-lg md:text-xl text-slate-700 max-w-xl">
+          In-person classes at home or office in Madrid, online lessons worldwide, and an AI-assisted B1–B2 podcast from Spain.
+          All levels, tailored to you.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#contact"
+             class="inline-flex items-center justify-center rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold px-6 py-3 shadow soft">
+             Book a free intro
+          </a>
+          <a href="#podcast"
+             class="inline-flex items-center justify-center rounded-xl border border-violet-300 hover:bg-violet-50 text-violet-700 font-semibold px-6 py-3">
+             Explore the podcast
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero visual simplified to logo tile -->
+      <div class="relative mx-auto md:mx-0">
+        <div class="rounded-3xl soft bg-white/70 border border-white/80 p-8 backdrop-blur">
+          <img src="assets/01-logo-see.png" alt="Brand mark"
+               class="w-64 md:w-80 h-auto mx-auto">
+          <div class="mt-6 grid grid-cols-3 gap-2 text-xs">
+            <div class="rounded-lg bg-violet-100 text-violet-800 px-3 py-2 text-center">Madrid</div>
+            <div class="rounded-lg bg-sky-100 text-sky-800 px-3 py-2 text-center">Online</div>
+            <div class="rounded-lg bg-pink-100 text-pink-800 px-3 py-2 text-center">B1–B2 Podcast</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: In-person classes in Madrid ===== -->
+  <section id="in-person" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <div class="order-2 lg:order-1">
+        <h2 class="heading text-3xl md:text-4xl font-bold text-slate-900" id="inPersonTitle">In-person classes in Madrid</h2>
+        <p class="mt-4 text-slate-600" id="inPersonText1">
+          One-to-one lessons at your home or office in Madrid. Flexible schedules and a communicative approach focused on real situations:
+          paperwork, healthcare, coffee shop small talk, job meetings — the Spanish you actually need.
+        </p>
+        <ul class="mt-6 space-y-2 text-slate-700" id="inPersonBullets">
+          <li>• All levels (A1 to C2), customized syllabus</li>
+          <li>• Conversation-first with targeted grammar support</li>
+          <li>• Materials included and after-class recap</li>
+        </ul>
+        <a href="#contact" class="mt-7 inline-block rounded-xl bg-slate-900 text-white px-6 py-3 font-semibold hover:bg-slate-800">Request availability</a>
+      </div>
+      <div class="order-1 lg:order-2">
+        <img src="assets/02-clase-en-casa.jpg" alt="Private lesson at home in Madrid" class="rounded-2xl soft w-full object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3: Online classes ===== -->
+  <section id="online" class="py-16 md:py-24 bg-gradient-to-br from-pink-50 via-white to-violet-50">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <img src="assets/03-clase-online.jpg" alt="Online Spanish lesson" class="rounded-2xl soft w-full object-cover">
+      </div>
+      <div>
+        <h2 class="heading text-3xl md:text-4xl font-bold text-slate-900" id="onlineTitle">Online classes</h2>
+        <p class="mt-4 text-slate-600" id="onlineText1">
+          Learn from anywhere with dynamic sessions on Zoom/Meet. Interactive whiteboard, real-time feedback and short
+          assignments that keep you moving forward between classes.
+        </p>
+        <ul class="mt-6 space-y-2 text-slate-700" id="onlineBullets">
+          <li>• Tailored plan and clear weekly goals</li>
+          <li>• Optional speaking club & homework check-ins</li>
+          <li>• Recordings and recap notes included</li>
+        </ul>
+        <a href="#contact" class="mt-7 inline-block rounded-xl bg-violet-600 text-white px-6 py-3 font-semibold hover:bg-violet-500">Start online</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4: Podcast (Same-scene x3) ====== -->
+  <section id="podcast" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <div class="relative">
+        <img id="podcastImage" src="assets/04-podcast-en.png" alt="1-2-3 Dreaming in Spanish Podcast" class="rounded-2xl soft w-full object-cover">
+        <span class="blink absolute -top-4 -left-4 rounded-full bg-amber-400 text-amber-950 px-3 py-1 text-xs font-bold shadow">
+          <span id="comingSoon">Coming soon</span>
+        </span>
+      </div>
+      <div>
+        <h2 class="heading text-3xl md:text-4xl font-bold text-slate-900" id="podcastTitle">
+          1-2-3 Dreaming in Spanish Podcast
+        </h2>
+        <p class="mt-4 text-slate-600" id="podcastIntro">
+          A Spain-based B1–B2 podcast built on the “Same-scene x3” method: one small story, three escalating versions.
+          Train your ear without losing context and finally bridge the gap between learner content and native speech.
+        </p>
+
+        <h3 class="heading mt-6 text-xl font-semibold text-slate-900" id="howItWorks">How it works</h3>
+        <ol class="mt-3 space-y-2 text-slate-700" id="howList">
+          <li><strong>1) Guided:</strong> a clear narrator frames the situation and previews vocabulary.</li>
+          <li><strong>2) Slowed dialogue:</strong> the same scene with natural pauses and clean pronunciation.</li>
+          <li><strong>3) Real conversation:</strong> authentic speed, interjections and colloquial Spanish from Spain.</li>
+        </ol>
+        <p class="mt-4 text-slate-600" id="podcastCTA">
+          Perfect for busy learners who want meaningful listening, not mindless drills.
+        </p>
+        <a href="#contact" class="mt-6 inline-block rounded-xl border border-slate-300 px-6 py-3 font-semibold hover:bg-slate-50">
+          Get early access
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5: What learners say — TESTIMONIAL SLIDER ===== -->
+  <section id="testimonials" class="py-16 md:py-24 bg-gradient-to-br from-sky-100 via-white to-pink-100">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <h2 class="heading text-3xl md:text-4xl font-bold text-slate-900 text-center" id="testimonialsTitle">What learners say</h2>
+
+      <!-- Slider container -->
+      <div id="slider"
+           class="mt-10 relative bg-white rounded-2xl soft border border-slate-100 p-6 md:p-10 overflow-hidden">
+
+        <!-- Slides wrapper -->
+        <div id="slidesWrapper" class="min-h-[260px]"></div>
+
+        <!-- Prev / Next -->
+        <button id="prevBtn" aria-label="Previous"
+                class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 hover:bg-white text-slate-700 w-10 h-10 grid place-items-center shadow">
+          ‹
+        </button>
+        <button id="nextBtn" aria-label="Next"
+                class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 hover:bg-white text-slate-700 w-10 h-10 grid place-items-center shadow">
+          ›
+        </button>
+
+        <!-- Dots -->
+        <div id="dots" class="mt-6 flex items-center justify-center gap-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 6: About me ===== -->
+  <section id="about" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <img src="assets/06.mcn.jpg" alt="María Carrillo – Spanish teacher" class="rounded-2xl soft w-full object-cover">
+      </div>
+      <div>
+        <h2 class="heading text-3xl md:text-4xl font-bold text-slate-900" id="aboutTitle">About me</h2>
+        <p class="mt-4 text-slate-700" id="aboutText1">
+          I’m <strong>María Carrillo</strong>, Certified teacher of Spanish as a foreign language.
+          I’ve been teaching one-to-one since 2014 across all levels and backgrounds.
+        </p>
+        <p class="mt-3 text-slate-700" id="aboutText2">
+          My approach blends human connection, clear structure and real-world Spanish from Spain,
+          so you grow your confidence lesson after lesson.
+        </p>
+        <a href="#contact" class="mt-7 inline-block rounded-xl bg-indigo-600 text-white px-6 py-3 font-semibold hover:bg-indigo-500">Work with me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 7: Contact form (with Facebook link) ===== -->
+  <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-violet-50 via-white to-sky-50">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <h2 class="heading text-3xl md:text-4xl font-bold text-slate-900" id="contactTitle">Contact</h2>
+      <p class="mt-3 text-slate-700" id="contactSubtitle">
+        Tell me about your goals. I’ll reply within 24–48h.
+      </p>
+
+      <!-- Social row with Facebook icon + hyperlinked brand -->
+      <div class="mt-4 flex items-center gap-3 text-slate-700">
+        <!-- Facebook Icon (inline SVG) -->
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="w-6 h-6 text-[#1877F2]">
+          <path fill="currentColor" d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.21 10.44 22v-7.03H7.9v-2.91h2.54v-2.22c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.25 0-1.64.78-1.64 1.58v1.86h2.79l-.45 2.91h-2.34V22C18.34 21.21 22 17.08 22 12.06Z"/>
+        </svg>
+        <a href="https://www.facebook.com/share/16TzUdSZw7/" target="_blank" rel="noopener noreferrer"
+           class="font-medium hover:underline underline-offset-2 decoration-[#1877F2] text-slate-800">
+          Sueña en Español
+        </a>
+      </div>
+
+      <!-- Endpoint: change if you have your own backend -->
+      <form action="https://formsubmit.co/suenaenespanol@gmail.com" method="POST"
+            class="mt-6 bg-white rounded-2xl soft p-6 md:p-8 grid grid-cols-1 gap-5">
+        <input type="hidden" name="_subject" value="New message from Dreaming in Spanish · Landing"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="hidden" name="_captcha" value="false"/>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700" id="labelName">Full name</label>
+            <input type="text" name="name" required
+                   class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-violet-400"/>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700" id="labelEmail">Email</label>
+            <input type="email" name="email" required
+                   class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-violet-400"/>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700" id="labelService">I’m interested in</label>
+            <select name="service" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-violet-400">
+              <option value="in-person-classes">In-person classes in Madrid</option>
+              <option value="online-classes">Online classes</option>
+              <option value="podcast-access">Early access to the podcast</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700" id="labelLevel">Current level</label>
+            <select name="level" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-violet-400">
+              <option>A1</option><option>A2</option><option selected>B1</option><option>B2</option><option>C1</option><option>C2</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700" id="labelMessage">Message</label>
+          <textarea name="message" rows="5" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-violet-400" placeholder="Tell me about your goals, schedule and preferences"></textarea>
+        </div>
+
+        <button type="submit"
+                class="mt-2 inline-flex items-center justify-center rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold px-6 py-3">
+          Send message
+        </button>
+
+        <p class="text-xs text-slate-500 mt-2">
+          Or email directly: <a href="mailto:suenaenespanol@gmail.com" class="underline">suenaenespanol@gmail.com</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="text-sm text-slate-600">&copy; <span id="year"></span> Dreaming in Spanish · Sueña en Español</p>
+      <p class="text-sm text-slate-600">Contact: <a href="mailto:suenaenespanol@gmail.com" class="underline">suenaenespanol@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <!-- ===== Language toggle + Slider script ===== -->
+  <script>
+    const state = { lang: 'en' };
+    const $ = (id)=>document.getElementById(id);
+
+    // Testimonials data (same quotes for both languages; title changes)
+    const TESTIMONIALS = [
+      {
+        text: `Maria is a wonderful Spanish teacher and has really helped me with my confidence with Spanish.
+I have been learning with her for some time now and progressing really well.
+She is very motivating and always keeps lessons engaging and fun.
+Always super helpful with any areas I am struggling on or need help with.
+I Would highly recommend Maria to anyone who is considering learning Spanish.`,
+        author: "Anthony - UK",
+      },
+      {
+        text: "Maria has great energy and this helps make learning easier. We spent time at the beginning so that she knew what our conversational level was and she teaches appropriately. She works with us so that I feel the class is more cooperative and not pedantic. Her style is not to lecture, but to interact and her knowledge is excellent. Highly recommended!",
+        author: "David – USA",
+      },
+      {
+        text: `Even though my Spanish journey has finished I will be always grateful that I met María on my way! She is incredibly good teacher and wonderful person. Her lessons were always well prepared, fun and interesting. She is a profesionalist and can adapt easily to meet individual requirements of each student.
+I truly recommend María if you want to learn Spanish fast and without much effort! She is patient, warm and very kind.
+I still remember our breakfast at Chocolatería San Ginés in Madrid (before pandemic). María took me there with other students to show Spanish culture and cuisine. We could train Spanish in the café and it was a great experience!`,
+        author: "Ania - Poland",
+      },
+      {
+        text: "María is a fantastic Spanish teacher. I am new to Madrid so searched FB Expats for a recommendation. Her name came highly recommended so I got in touch. Maria answered straight away & I have never looked back. Maria makes me feel very comfortable. She is very encouraging, the lessons are fun & go at just the right pace for me. I am so glad I found Maria",
+        author: "Jacqueline - UK",
+      },
+      {
+        text: "Maria is a native Spanish speaker with a very good command of English. She has lots of patience and makes every lesson fun. I would recommend Maria for anyone who is a novice, intermediate or more advanced Spanish student.",
+        author: "Richard - UK",
+      },
+      {
+        text: "Maria is a very patient, relaxed and skilled teacher. She keeps it very interactive and I have learnt lots from her! Highly recommended. Thanks so much Maria at Sueña en Español for being such a fabulous teacher. I’ve learnt so much.",
+        author: "Sarah - UK",
+      },
+      {
+        text: "Maria is an excellent teacher! She provides both a great mix of listening, speaking and practical learning activities and a very safe, supportive learning environment. As a student, I feel pushed to learn and try out new competencies, feel safe and supported in doing so and gain valuable feedback that helps you to learn.",
+        author: "Irina – USA",
+      },
+    ];
+
+    /* ---------- HERO TEXT (EN/ES) ---------- */
+    function setEN(){
+      document.documentElement.lang = 'en';
+      $('brandTitle').textContent = 'Dreaming in Spanish';
+
+      $('heroTitleLine1').textContent = 'Dreaming in Spanish';
+      $('heroTitleLine2').innerHTML =
+        'Dreaming in another language means mastering it.<br>Dream in Spanish.<br>From the classroom... to your dreams.';
+      $('heroSubtitle').textContent =
+        'In-person classes at home or office in Madrid, online lessons worldwide, and an AI-assisted B1–B2 podcast from Spain. All levels, tailored to you.';
+
+      // Section titles/texts
+      $('inPersonTitle').textContent = 'In-person classes in Madrid';
+      $('inPersonText1').textContent =
+        'One-to-one lessons at your home or office in Madrid. Flexible schedules and a communicative approach focused on real situations: paperwork, healthcare, coffee shop small talk, job meetings — the Spanish you actually need.';
+      $('inPersonBullets').innerHTML = `
+        <li>• All levels (A1 to C2), customized syllabus</li>
+        <li>• Conversation-first with targeted grammar support</li>
+        <li>• Materials included and after-class recap</li>`;
+
+      $('onlineTitle').textContent = 'Online classes';
+      $('onlineText1').textContent =
+        'Learn from anywhere with dynamic sessions on Zoom/Meet. Interactive whiteboard, real-time feedback and short assignments that keep you moving forward between classes.';
+      $('onlineBullets').innerHTML = `
+        <li>• Tailored plan and clear weekly goals</li>
+        <li>• Optional speaking club & homework check-ins</li>
+        <li>• Recordings and recap notes included</li>`;
+
+      $('podcastTitle').textContent = '1-2-3 Dreaming in Spanish Podcast';
+      $('podcastIntro').textContent =
+        'A Spain-based B1–B2 podcast built on the “Same-scene x3” method: one small story, three escalating versions. Train your ear without losing context and finally bridge the gap between learner content and native speech.';
+      $('howItWorks').textContent = 'How it works';
+      $('howList').innerHTML = `
+        <li><strong>1) Guided:</strong> a clear narrator frames the situation and previews vocabulary.</li>
+        <li><strong>2) Slowed dialogue:</strong> the same scene with natural pauses and clean pronunciation.</li>
+        <li><strong>3) Real conversation:</strong> authentic speed, interjections and colloquial Spanish from Spain.</li>`;
+      $('podcastCTA').textContent = 'Perfect for busy learners who want meaningful listening, not mindless drills.';
+      $('comingSoon').textContent = 'Coming soon';
+      $('podcastImage').src = 'assets/04-podcast-en.png';
+
+      $('testimonialsTitle').textContent = 'What learners say';
+      $('aboutTitle').textContent = 'About me';
+      $('aboutText1').innerHTML = "I’m <strong>María Carrillo</strong>, Certified teacher of Spanish as a foreign language. I’ve been teaching one-to-one since 2014 across all levels and backgrounds.";
+      $('aboutText2').textContent = 'My approach blends human connection, clear structure and real-world Spanish from Spain, so you grow your confidence lesson after lesson.';
+      $('contactTitle').textContent = 'Contact';
+      $('contactSubtitle').textContent = 'Tell me about your goals. I’ll reply within 24–48h.';
+      $('labelName').textContent = 'Full name';
+      $('labelEmail').textContent = 'Email';
+      $('labelService').textContent = 'I’m interested in';
+      $('labelLevel').textContent = 'Current level';
+      $('labelMessage').textContent = 'Message';
+
+      state.lang = 'en';
+      renderSlide(); // re-render slider (texts unchanged, title changed)
+    }
+
+    function setES(){
+      document.documentElement.lang = 'es';
+      $('brandTitle').textContent = 'Sueña en Español';
+
+      $('heroTitleLine1').textContent = 'Sueña en Español';
+      $('heroTitleLine2').innerHTML =
+        'Soñar en otro idioma es dominarlo.<br>Sueña en español.<br>De las clases … a tus sueños';
+      $('heroSubtitle').textContent =
+        'Clases presenciales a domicilio en Madrid, clases online a todo el mundo y un pódcast B1–B2 con ayuda de IA en español de España. Todos los niveles, 100% a medida.';
+
+      $('inPersonTitle').textContent = 'Clases presenciales en Madrid';
+      $('inPersonText1').textContent =
+        'Clases individuales en tu casa u oficina en Madrid. Horarios flexibles y enfoque comunicativo para situaciones reales: trámites, salud, charlas en cafetería, reuniones de trabajo — el español que de verdad necesitas.';
+      $('inPersonBullets').innerHTML = `
+        <li>• Todos los niveles (A1 a C2), programa personalizado</li>
+        <li>• Conversación primero con refuerzo de gramática puntual</li>
+        <li>• Materiales incluidos y resumen tras la clase</li>`;
+
+      $('onlineTitle').textContent = 'Clases online';
+      $('onlineText1').textContent =
+        'Aprende desde cualquier lugar con sesiones dinámicas por Zoom/Meet. Pizarra interactiva, feedback en tiempo real y tareas cortas que mantienen el progreso entre clases.';
+      $('onlineBullets').innerHTML = `
+        <li>• Plan a medida y objetivos semanales claros</li>
+        <li>• Opción de speaking club y revisión de tareas</li>
+        <li>• Grabaciones y notas de recap incluidas</li>`;
+
+      $('podcastTitle').textContent = '1-2-3 Sueña en Español Podcast';
+      $('podcastIntro').textContent =
+        'Pódcast B1–B2 basado en “Same-scene x3”: una historia breve, tres versiones en progresión. Entrena el oído sin perder el contexto y por fin haz el puente entre contenido para estudiantes y habla nativa.';
+      $('howItWorks').textContent = 'Cómo funciona';
+      $('howList').innerHTML = `
+        <li><strong>1) Guiada:</strong> una narradora contextualiza la escena y anticipa el vocabulario.</li>
+        <li><strong>2) Diálogo lento:</strong> la misma escena con pausas naturales y dicción clara.</li>
+        <li><strong>3) Conversación real:</strong> velocidad auténtica, muletillas y español coloquial de España.</li>`;
+      $('podcastCTA').textContent = 'Ideal si tienes poco tiempo y buscas escucha con sentido, no ejercicios vacíos.';
+      $('comingSoon').textContent = 'Muy pronto';
+      $('podcastImage').src = 'assets/04-podcast-es.png';
+
+      $('testimonialsTitle').textContent = 'Opiniones de estudiantes';
+      $('aboutTitle').textContent = 'Sobre mí';
+      $('aboutText1').innerHTML = 'Soy <strong>María Carrillo</strong>, profesora certificada de ELE (español como lengua extranjera). Doy clases uno a uno desde 2014 a todos los niveles y perfiles.';
+      $('aboutText2').textContent = 'Mi enfoque combina cercanía humana, estructura clara y español real de España para que ganes confianza clase a clase.';
+      $('contactTitle').textContent = 'Contacto';
+      $('contactSubtitle').textContent = 'Cuéntame tus objetivos. Respondo en 24–48 h.';
+      $('labelName').textContent = 'Nombre y apellidos';
+      $('labelEmail').textContent = 'Correo electrónico';
+      $('labelService').textContent = 'Me interesa';
+      $('labelLevel').textContent = 'Nivel actual';
+      $('labelMessage').textContent = 'Mensaje';
+
+      state.lang = 'es';
+      renderSlide(); // re-render slider
+    }
+
+    document.getElementById('langBtn').addEventListener('click', ()=>{
+      state.lang === 'en' ? setES() : setEN();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== Testimonial Slider Logic =====
+    let current = 0;
+    let timer = null;
+
+    const slidesWrapper = document.getElementById('slidesWrapper');
+    const dotsContainer = document.getElementById('dots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function createSlideHTML(item){
+      return `
+        <div class="fade-enter bg-white">
+          <div class="text-slate-700 whitespace-pre-line text-base md:text-lg leading-relaxed">“${item.text}”</div>
+          <div class="mt-6 text-sm md:text-base font-semibold text-violet-700">${item.author}</div>
+        </div>`;
+    }
+
+    function renderDots(){
+      dotsContainer.innerHTML = '';
+      TESTIMONIALS.forEach((_, i)=>{
+        const dot = document.createElement('button');
+        dot.className = 'w-2.5 h-2.5 rounded-full ' + (i===current ? 'bg-violet-600' : 'bg-slate-300 hover:bg-slate-400');
+        dot.setAttribute('aria-label','Go to testimonial '+(i+1));
+        dot.addEventListener('click', ()=>{ goTo(i); });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function renderSlide(){
+      // Exit animation (if present)
+      const previous = slidesWrapper.firstElementChild;
+      if (previous){
+        previous.classList.remove('fade-enter','fade-enter-active');
+        previous.classList.add('fade-exit');
+        void previous.offsetWidth; // force reflow
+        previous.classList.add('fade-exit-active');
+        setTimeout(()=>{ previous && previous.remove(); }, 300);
+      }
+      // Insert new slide
+      slidesWrapper.insertAdjacentHTML('afterbegin', createSlideHTML(TESTIMONIALS[current]));
+      const el = slidesWrapper.firstElementChild;
+      void el.offsetWidth; // trigger enter animation
+      el.classList.add('fade-enter-active');
+
+      renderDots();
+      restartAuto();
+    }
+
+    function next(){ current = (current + 1) % TESTIMONIALS.length; renderSlide(); }
+    function prev(){ current = (current - 1 + TESTIMONIALS.length) % TESTIMONIALS.length; renderSlide(); }
+    function goTo(i){ current = i; renderSlide(); }
+
+    function restartAuto(){
+      if (timer) clearInterval(timer);
+      timer = setInterval(next, 6000);
+    }
+
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+    document.getElementById('slider').addEventListener('mouseenter', ()=> timer && clearInterval(timer));
+    document.getElementById('slider').addEventListener('mouseleave', restartAuto);
+
+    // Init
+    (function init(){
+      setEN();
+      document.getElementById('year').textContent = new Date().getFullYear();
+      renderSlide();
+    })();
+  </script>
+</body>
+</html>
